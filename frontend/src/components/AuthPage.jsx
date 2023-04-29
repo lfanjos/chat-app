@@ -5,7 +5,9 @@ const AuthPage = ({ onAuth }) => {
         e.preventDefault();
         const { value } = e.target[0];
         axios
-            .post('http://localhost:3001/authenticate', { username: value })
+            .post('http://lfanjos.github.io/chat-app/authenticate', {
+                username: value,
+            })
             .then((r) => onAuth({ ...r.data, secret: value }))
             .catch((e) => console.log(e));
         onAuth({ username: value, secret: value });
